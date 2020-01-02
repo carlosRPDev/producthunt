@@ -25,12 +25,19 @@ class ProductsController < ApplicationController
     end
 
     def update
-      @product = Product.find(params[:id])
-      if @product.update(product_params)
+      product = Product.find(params[:id])
+      if product.update(product_params)
         redirect_to products_path, notice: "El producto fue modificado con exito"
       else
         render :edit
-      end  
+      end
+    end
+
+    def destroy
+      product = Product.find(params[:id])
+      product.destroy
+
+      redirect_to products_path, notice: "El producto fue eliminado con éxito"
     end
 
     private
