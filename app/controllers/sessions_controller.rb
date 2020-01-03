@@ -1,4 +1,7 @@
 class SessionsController < ApplicationController
+  before_action :private_access, only: [:destroy]
+  before_action :pulic_access, except: [:destroy]
+
   def new
   end
 
