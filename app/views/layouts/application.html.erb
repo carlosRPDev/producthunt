@@ -19,6 +19,7 @@
     <% if signed_in? %>
       <div class="">
         Hola, <%= current_user.name %>
+        <%= link_to "Salir", logout_path, method: :delete %>
       </div>
     <% end %>
 
