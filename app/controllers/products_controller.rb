@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :private_access, excep: [:index, :show]
+  before_action :private_access, except: [:index, :show]
 
     def index
       @products = Product.all
@@ -11,6 +11,7 @@ class ProductsController < ApplicationController
 
     def create
       @product = Product.new(product_params)
+      @product.user = current_user
       if @product.save
         redirect_to products_path, notice: "El producto fue publicado con éxito."
       else
