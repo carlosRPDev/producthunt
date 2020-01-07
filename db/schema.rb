@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_07_131245) do
+ActiveRecord::Schema.define(version: 2020_01_07_142245) do
 
   create_table "comments", force: :cascade do |t|
     t.text "body"
@@ -40,7 +40,18 @@ ActiveRecord::Schema.define(version: 2020_01_07_131245) do
     t.datetime "updated_at"
   end
 
+  create_table "votes", force: :cascade do |t|
+    t.integer "product_id", null: false
+    t.integer "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["product_id"], name: "index_votes_on_product_id"
+    t.index ["user_id"], name: "index_votes_on_user_id"
+  end
+
   add_foreign_key "comments", "products"
   add_foreign_key "comments", "users"
   add_foreign_key "products", "users"
+  add_foreign_key "votes", "products"
+  add_foreign_key "votes", "users"
 end
