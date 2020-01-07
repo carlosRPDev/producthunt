@@ -23,10 +23,10 @@
           <ul class="navbar-nav mr-auto">
           </ul>
           <ul class="navbar-nav">
-            <% if signed_in? %>
             <form class="form-inline my-2 my-lg-0">
               <input class="form-control mr-sm-2" type="text" placeholder="Search">
             </form>
+            <% if signed_in? %>
             <ul class="navbar-nav">
               <!-- Aqui va el codigo para suir el gravatar si esta autenticado -->
               <li class="nav-item"><%= current_user.name %></li>
