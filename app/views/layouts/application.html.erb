@@ -27,15 +27,16 @@
               <input class="form-control mr-sm-2" type="text" placeholder="Search">
             </form>
             <% if signed_in? %>
-            <ul class="navbar-nav">
-              <!-- Aqui va el codigo para suir el gravatar si esta autenticado -->
-              <li class="nav-item"><%= current_user.name %></li>
-            </ul>
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <%= link_to "Salir", logout_path, method: :delete, class: "nav-link" %>
-              </li>
-            </ul>
+
+            <li class="dropdown mr-sm-2">
+              <a href="#" class="dropdown-toggle avatar text-decoration-none" data-toggle="dropdown">
+                <%= image_tag current_user.gravatar_url(:rating => 'R', :secure => true), class: "rounded-circle" %>
+              </a>
+              <ul class="dropdown-menu" role="menu">
+                <li class="dropdown-item"><%= link_to "Salir", logout_path, method: :delete, class: "text-decoration-none" %></li>
+              </ul>
+            </li>
+            <li><%= link_to "<i class='fas fa-plus'></i>".html_safe, new_product_path %></li>
             <% else %>
             <li class="nav-item">
               <%= link_to "Regístrate", new_user_path, class: "nav-link" %>

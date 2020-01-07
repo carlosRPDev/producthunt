@@ -14,6 +14,9 @@
 class User < ApplicationRecord
   has_secure_password validations: false
 
+  include Gravtastic
+  gravtastic
+
   has_many :products
   has_many :comments
   has_many :votes
