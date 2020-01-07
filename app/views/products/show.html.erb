@@ -19,7 +19,7 @@
           <h2>Votos</h2>
 
           <% @product.votes.each do |vote| %>
-            <img src="Aqui va la imagen de usuario de gravatar" class="img-circle" />
+            <%= image_tag vote.user.gravatar_url, class: " rounded-circle" %>
           <% end %>
         </div>
 
@@ -28,7 +28,7 @@
 
           <% @product.comments.each do |comment| %>
             <div class="card mb-3">
-              <header class="card-header"><img src="Aqui el codigo de la imagen de gravatar" class="img-circle" /> <%= comment.user.name %></header>
+              <header class="card-header"><%= image_tag comment.user.gravatar_url, class: " rounded-circle" %> <%= comment.user.name %></header>
               <div class="card-body"><%= comment.body %></div>
             </div>
           <% end %>

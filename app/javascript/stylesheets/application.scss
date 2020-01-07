@@ -1,3 +1,9 @@
 @import './bootstrap_custom.scss';
 @import './products.scss';
 @import '@fortawesome/fontawesome-free';
+
+.navbar-nav > li > a.avatar {
+  padding-top: 7px;
+  padding-bottom: 7px;
+  img { width: 37px; }
+}
