@@ -27,7 +27,7 @@ gem 'font_awesome5_rails'
 
 gem 'gravtastic'
 
-gem "image_processing", "~> 1.2"
+gem "image_processing", "~> 1.12"
 gem "mini_magick", "~> 4.8"
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
